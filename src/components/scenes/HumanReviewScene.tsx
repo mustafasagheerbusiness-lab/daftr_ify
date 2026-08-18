@@ -1,6 +1,7 @@
 import { CheckItem } from "@/components/primitives/CheckItem";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Scene } from "@/components/primitives/Scene";
 import { Signature } from "@/components/primitives/Signature";
 import { Stamp } from "@/components/primitives/Stamp";
@@ -18,14 +19,10 @@ export function HumanReviewScene() {
     >
       <h2
         id="human-review-heading"
-        className="max-w-3xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+        className="max-w-3xl font-display text-[clamp(2.5rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
       >
-        <Reveal as="span" mode="mask" className="block">
-          AI-assisted.
-        </Reveal>
-        <Reveal as="span" mode="mask" className="block" delay={0.08}>
-          <span className="font-accent font-normal italic">Human-reviewed.</span>
-        </Reveal>
+        <WordReveal words={["AI-assisted."]} className="block" />
+        <WordReveal words={["Human-reviewed."]} serif delay={0.14} className="block" />
       </h2>
 
       <Reveal as="p" delay={0.2} className="mt-6 max-w-xl leading-relaxed opacity-70">

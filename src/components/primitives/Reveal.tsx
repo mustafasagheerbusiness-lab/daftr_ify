@@ -64,10 +64,10 @@ export function Reveal({
   return (
     <Tag
       className={className}
-      initial={reduced ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduced ? false : { opacity: 0, y, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={VIEWPORT}
-      transition={{ duration: DURATION.slow, ease: EASE.outQuart, delay }}
+      transition={{ duration: DURATION.slow, ease: EASE.outExpo, delay }}
     >
       {children}
     </Tag>

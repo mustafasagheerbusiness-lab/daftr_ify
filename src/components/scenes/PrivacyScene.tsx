@@ -2,6 +2,7 @@ import { CheckItem } from "@/components/primitives/CheckItem";
 import { EMAILS } from "@/content/site";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Scene } from "@/components/primitives/Scene";
 import { Sheet } from "@/components/primitives/Sheet";
 import { Stamp } from "@/components/primitives/Stamp";
@@ -26,14 +27,10 @@ export function PrivacyScene() {
         <div>
           <h2
             id="privacy-heading"
-            className="font-display text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+            className="font-display text-[clamp(2.25rem,5.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em]"
           >
-            <Reveal as="span" mode="mask" className="block">
-              Your files stay
-            </Reveal>
-            <Reveal as="span" mode="mask" className="block" delay={0.08}>
-              <span className="font-accent font-normal italic">your files.</span>
-            </Reveal>
+            <WordReveal words={["Your", "files", "stay"]} className="block" />
+            <WordReveal words={["your", "files."]} serifWord={1} delay={0.16} className="block" />
           </h2>
 
           <Reveal as="p" delay={0.2} className="mt-6 max-w-xl leading-relaxed opacity-70">

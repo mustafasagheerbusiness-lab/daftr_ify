@@ -1,18 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import type { CSSProperties } from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
-import { cn } from "@/lib/cn";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { EASE } from "@/lib/animations";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
-import { SplitText } from "@/components/primitives/SplitText";
 import { TypeLine } from "@/components/primitives/TypeLine";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
@@ -25,38 +18,62 @@ const DUST = Array.from({ length: 16 }, (_, i) => ({
   opacity: 0.18 + ((i * 13) % 12) / 40,
 }));
 
+const HEADLINE_1 = ["Messy ", "work."];
+const HEADLINE_2 = ["Clear ", "workflows."];
+
+function Word({
+  text,
+  delay,
+  serif,
+}: {
+  text: string;
+  delay: number;
+  serif?: boolean;
+}) {
+  const reduced = useReducedMotion();
+
+  return (
+    <motion.span
+      className={serif ? "font-accent font-normal italic" : undefined}
+      style={
+        serif
+          ? ({ textShadow: "0 0 44px rgb(0 153 255 / 0.4)" } as CSSProperties)
+          : undefined
+      }
+      initial={reduced ? false : { opacity: 0, y: 52, filter: "blur(16px)" }}
+      animate={reduced ? false : { opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.1, ease: EASE.outExpo, delay }}
+    >
+      {text}
+    </motion.span>
+  );
+}
+
 export function HeroScene() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const isMobile = useIsMobile();
-  const [scattered, setScattered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
 
-  const blockY = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const blockOpacity = useTransform(scrollYProgress, [0.55, 0.9], [1, 0]);
+  const blockY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const blockOpacity = useTransform(scrollYProgress, [0.45, 0.9], [1, 0]);
+  const blockScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
   const metaY = useTransform(scrollYProgress, [0, 1], [0, -48]);
 
-  useMotionValueEvent(scrollYProgress, "change", (value) => {
-    setScattered(value > 0.72);
-  });
-
   const animateBlock = !reduced && !isMobile;
-  const scatteredActive = scattered && !reduced && !isMobile;
 
   return (
     <section
       ref={sectionRef}
       id="cover"
-      className={cn(
-        "grain grid-doc relative flex min-h-svh flex-col justify-center overflow-x-clip bg-paper-50 text-ink-950",
-        scatteredActive && "hero-scatter",
-      )}
+      className="grain relative flex min-h-svh flex-col justify-center overflow-x-clip bg-paper-50 text-ink-950"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="hero-glow" />
         <div className="hero-orb hero-orb-a" />
         <div className="hero-orb hero-orb-b" />
         <div className="hero-orb hero-orb-c" />
@@ -81,32 +98,44 @@ export function HeroScene() {
 
       <motion.div
         className="container-doc text-center"
-        style={animateBlock ? { y: blockY, opacity: blockOpacity } : undefined}
+        style={
+          animateBlock
+            ? { y: blockY, opacity: blockOpacity, scale: blockScale }
+            : undefined
+        }
       >
         <TypeLine
           text="DAFTRIFY — Document & Workflow Operations"
           delay={0.15}
-          className="justify-center font-mono text-[0.6875rem] uppercase tracking-[0.25em] opacity-60"
+          className="font-mono text-[0.6875rem] uppercase tracking-[0.25em] opacity-60"
         />
 
         <h1
           aria-label="Messy work. Clear workflows."
-          className="mx-auto mt-10 max-w-5xl font-display text-[clamp(3.5rem,8vw,7rem)] font-bold leading-[0.95] tracking-[-0.03em]"
+          className="mx-auto mt-10 max-w-5xl font-display text-[clamp(2.75rem,7.5vw,6.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
         >
-          <span aria-hidden="true" className="block">
-            <SplitText text="Messy work." mode="messy" delay={0.4} />
+          <span className="block">
+            {HEADLINE_1.map((word, i) => (
+              <Word key={word} text={word} delay={0.3 + i * 0.16} />
+            ))}
           </span>
-          <span aria-hidden="true" className="shine block">
-            <SplitText text="Clear workflows." mode="clean" delay={1.5} />
+          <span className="block">
+            {HEADLINE_2.map((word, i) => (
+              <Word key={word} text={word} delay={1.15 + i * 0.16} serif />
+            ))}
           </span>
         </h1>
 
-        <Reveal as="p" delay={2.1} className="mx-auto mt-10 max-w-xl text-lg leading-relaxed opacity-70">
+        <Reveal
+          as="p"
+          delay={2}
+          className="mx-auto mt-10 max-w-xl text-lg leading-relaxed opacity-70"
+        >
           Repetitive, document-heavy work — reorganized into faster, consistent,
           human-reviewed workflows. AI-assisted. Human-reviewed.
         </Reveal>
 
-        <Reveal delay={2.3} className="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <Reveal delay={2.2} className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <a href="#contact" className="btn btn-primary">
             Start a workflow
           </a>
@@ -117,7 +146,7 @@ export function HeroScene() {
 
         <motion.div style={animateBlock ? { y: metaY } : undefined} className="mt-24">
           <Reveal
-            delay={2.5}
+            delay={2.4}
             className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 border-t border-ink-950/10 pt-6"
           >
             <MonoLabel>PAKISTAN · WORKING GLOBALLY</MonoLabel>

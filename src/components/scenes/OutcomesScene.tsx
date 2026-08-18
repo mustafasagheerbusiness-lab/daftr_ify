@@ -2,6 +2,7 @@ import { METRICS, ROADMAP, SCOPE_LINE } from "@/content/metrics";
 import { Counter } from "@/components/primitives/Counter";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Scene } from "@/components/primitives/Scene";
 import { Stamp } from "@/components/primitives/Stamp";
 
@@ -15,14 +16,15 @@ export function OutcomesScene() {
     >
       <h2
         id="outcomes-heading"
-        className="max-w-3xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+        className="max-w-3xl font-display text-[clamp(2.5rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
       >
-        <Reveal as="span" mode="mask" className="block">
-          What changes when
-        </Reveal>
-        <Reveal as="span" mode="mask" className="block" delay={0.08}>
-          <span className="font-accent font-normal italic">the workflow is clear.</span>
-        </Reveal>
+        <WordReveal words={["What", "changes", "when"]} className="block" />
+        <WordReveal
+          words={["the", "workflow", "is", "clear."]}
+          serifWord={3}
+          delay={0.16}
+          className="block"
+        />
       </h2>
 
       <Reveal delay={0.15} className="mt-14">

@@ -2,6 +2,7 @@ import { FOUNDER } from "@/content/founder";
 import { CheckItem } from "@/components/primitives/CheckItem";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Scene } from "@/components/primitives/Scene";
 import { Signature } from "@/components/primitives/Signature";
 import { Stamp } from "@/components/primitives/Stamp";
@@ -19,14 +20,10 @@ export function FounderScene() {
         <div>
           <h2
             id="founder-heading"
-            className="font-display text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+            className="font-display text-[clamp(2.25rem,5.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em]"
           >
-            <Reveal as="span" mode="mask" className="block">
-              Built by hand.
-            </Reveal>
-            <Reveal as="span" mode="mask" className="block" delay={0.08}>
-              <span className="font-accent font-normal italic">One person. One process.</span>
-            </Reveal>
+            <WordReveal words={["Built", "by", "hand."]} className="block" />
+            <WordReveal words={["One", "person.", "One", "process."]} serif delay={0.16} className="block" />
           </h2>
 
           <Reveal as="p" delay={0.2} className="mt-8 max-w-xl leading-relaxed opacity-75">

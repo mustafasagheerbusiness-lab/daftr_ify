@@ -2,6 +2,7 @@ import { EMAILS, EMAIL_ROLES, SITE, whatsappHref } from "@/content/site";
 import { IntakeForm } from "@/components/scenes/IntakeForm";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Scene } from "@/components/primitives/Scene";
 
 export function ContactScene() {
@@ -16,14 +17,10 @@ export function ContactScene() {
         <div>
           <h2
             id="contact-heading"
-            className="font-display text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+            className="font-display text-[clamp(2.25rem,5.5vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em]"
           >
-            <Reveal as="span" mode="mask" className="block">
-              Start your
-            </Reveal>
-            <Reveal as="span" mode="mask" className="block" delay={0.08}>
-              <span className="font-accent font-normal italic">workflow.</span>
-            </Reveal>
+            <WordReveal words={["Start", "your"]} className="block" />
+            <WordReveal words={["workflow."]} serif delay={0.14} className="block" />
           </h2>
 
           <Reveal as="p" delay={0.2} className="mt-6 max-w-md leading-relaxed opacity-70">

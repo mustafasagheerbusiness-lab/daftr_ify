@@ -13,6 +13,7 @@ import { cn } from "@/lib/cn";
 import { EASE } from "@/lib/animations";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { WorkflowSheet } from "@/components/scenes/WorkflowSheet";
 import { WORKFLOW_FILES, WORKFLOW_STAGES } from "@/content/workflows";
 
@@ -46,14 +47,10 @@ export function DemoScene() {
 
         <h2
           id="workflows-heading"
-          className="mt-12 max-w-3xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+          className="mt-12 max-w-3xl font-display text-[clamp(2.5rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
         >
-          <Reveal as="span" mode="mask" className="block">
-            Four files.
-          </Reveal>
-          <Reveal as="span" mode="mask" className="block" delay={0.08}>
-            <span className="font-accent font-normal italic">One pipeline.</span>
-          </Reveal>
+          <WordReveal words={["Four", "files."]} className="block" />
+          <WordReveal words={["One", "pipeline."]} serifWord={1} delay={0.14} className="block" />
         </h2>
 
         <Reveal as="p" delay={0.2} className="mt-6 max-w-xl leading-relaxed opacity-70">

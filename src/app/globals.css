@@ -156,6 +156,7 @@
       background-color var(--dur-fast),
       border-color var(--dur-fast),
       color var(--dur-fast),
+      box-shadow var(--dur-fast),
       transform var(--dur-fast);
   }
 
@@ -168,6 +169,9 @@
   .btn-primary:hover {
     background-color: var(--color-ink-800);
     border-color: var(--color-ink-800);
+    box-shadow:
+      0 0 28px rgb(0 153 255 / 0.4),
+      0 0 72px rgb(0 153 255 / 0.18);
     transform: translateY(-1px);
   }
 

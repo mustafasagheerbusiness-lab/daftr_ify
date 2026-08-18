@@ -19,6 +19,9 @@ const HumanReviewScene = dynamic(() =>
 const OutcomesScene = dynamic(() =>
   import("@/components/scenes/OutcomesScene").then((m) => m.OutcomesScene),
 );
+const FeaturedScene = dynamic(() =>
+  import("@/components/scenes/FeaturedScene").then((m) => m.FeaturedScene),
+);
 const FounderScene = dynamic(() =>
   import("@/components/scenes/FounderScene").then((m) => m.FounderScene),
 );
@@ -47,6 +50,7 @@ export function PageNarrative() {
       <DemoScene />
       <HumanReviewScene />
       <OutcomesScene />
+      <FeaturedScene />
       <FounderScene />
       <PrivacyScene />
       <ContactScene />

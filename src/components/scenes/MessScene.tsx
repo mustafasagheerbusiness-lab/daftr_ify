@@ -8,6 +8,7 @@ import { Counter } from "@/components/primitives/Counter";
 import { DrawLine } from "@/components/primitives/DrawLine";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
+import { WordReveal } from "@/components/primitives/WordReveal";
 import { Stamp } from "@/components/primitives/Stamp";
 import { MESS_COSTS } from "@/content/site";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -138,14 +139,10 @@ export function MessScene() {
 
         <h2
           id="mess-heading"
-          className="max-w-3xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+          className="max-w-3xl font-display text-[clamp(2.5rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
         >
-          <Reveal as="span" mode="mask" className="block">
-            Every business has
-          </Reveal>
-          <Reveal as="span" mode="mask" className="block" delay={0.08}>
-            <span className="font-accent font-normal italic">a paper problem.</span>
-          </Reveal>
+          <WordReveal words={["Every", "business", "has"]} className="block" />
+          <WordReveal words={["a", "paper", "problem."]} serifWord={2} delay={0.16} className="block" />
         </h2>
 
         <Reveal as="p" delay={0.2} className="mt-6 max-w-xl leading-relaxed opacity-70">
