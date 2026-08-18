@@ -29,7 +29,7 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.SITE_URL?.trim() || "http://localhost:3000"),
   title: `DAFTRIFY — ${SITE.positioning}`,
   description: SITE.description,
   keywords: [
