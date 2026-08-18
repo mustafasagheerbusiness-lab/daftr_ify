@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper-50: var(--paper-50);
+  --color-paper-100: var(--paper-100);
+  --color-paper-200: var(--paper-200);
+  --color-paper-300: var(--paper-300);
+  --color-paper-400: var(--paper-400);
+  --color-paper-500: var(--paper-500);
+  --color-paper-600: var(--paper-600);
+  --color-paper-700: var(--paper-700);
+  --color-paper-800: var(--paper-800);
+  --color-paper-900: var(--paper-900);
+  --color-paper-950: var(--paper-950);
+
+  --color-ink-50: var(--ink-50);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-ink-950: var(--ink-950);
+
+  --color-stamp-50: var(--stamp-50);
+  --color-stamp-100: var(--stamp-100);
+  --color-stamp-200: var(--stamp-200);
+  --color-stamp-300: var(--stamp-300);
+  --color-stamp-400: var(--stamp-400);
+  --color-stamp-500: var(--stamp-500);
+  --color-stamp-600: var(--stamp-600);
+  --color-stamp-700: var(--stamp-700);
+  --color-stamp-800: var(--stamp-800);
+  --color-stamp-900: var(--stamp-900);
+  --color-stamp-950: var(--stamp-950);
+
+  --color-mark-50: var(--mark-50);
+  --color-mark-100: var(--mark-100);
+  --color-mark-200: var(--mark-200);
+  --color-mark-300: var(--mark-300);
+  --color-mark-400: var(--mark-400);
+  --color-mark-500: var(--mark-500);
+  --color-mark-600: var(--mark-600);
+  --color-mark-700: var(--mark-700);
+  --color-mark-800: var(--mark-800);
+  --color-mark-900: var(--mark-900);
+  --color-mark-950: var(--mark-950);
+
+  --font-display: var(--font-display-face);
+  --font-mono: var(--font-mono-face);
+  --font-accent: var(--font-accent-face);
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --duration-fast: var(--dur-fast);
+  --duration-base: var(--dur-base);
+  --duration-slow: var(--dur-slow);
+  --duration-cine: var(--dur-cine);
+
+  --shadow-sheet: 0 1px 2px rgb(11 14 21 / 0.06), 0 12px 32px -16px rgb(11 14 21 / 0.28);
+  --shadow-lift: 0 2px 4px rgb(11 14 21 / 0.06), 0 28px 56px -24px rgb(11 14 21 / 0.4);
+
+  --z-header: 40;
+  --z-progress: 45;
+  --z-menu: 60;
+
+  --spacing-section: clamp(5rem, 12vh, 9rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-paper-50);
+    color: var(--color-ink-950);
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-stamp-200);
+    color: var(--color-ink-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-stamp-600);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-doc {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--max-w-content);
+    padding-inline: var(--gutter);
+  }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid transparent;
+    font-family: var(--font-mono-face);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background-color var(--dur-fast),
+      border-color var(--dur-fast),
+      color var(--dur-fast),
+      transform var(--dur-fast);
+  }
+
+  .btn-primary {
+    background-color: var(--color-ink-950);
+    border-color: var(--color-ink-950);
+    color: var(--color-paper-50);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-ink-800);
+    border-color: var(--color-ink-800);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border: 1px solid var(--color-stamp-600);
+    border-radius: 2px;
+    opacity: 0;
+    transform: scale(1.18);
+    transition:
+      opacity var(--dur-fast),
+      transform var(--dur-fast);
+    pointer-events: none;
+  }
+
+  .btn-primary:hover::after {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  .btn-inverse {
+    background-color: var(--color-paper-50);
+    border-color: var(--color-paper-50);
+    color: var(--color-ink-950);
+  }
+
+  .btn-inverse:hover {
+    background-color: var(--color-paper-200);
+    border-color: var(--color-paper-200);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    border-color: color-mix(in srgb, currentColor 25%, transparent);
+    color: inherit;
+  }
+
+  .btn-ghost:hover {
+    border-color: currentColor;
+    transform: translateY(-1px);
+  }
+
+  .stamp {
+    position: relative;
+    display: inline-block;
+    padding: 0.4em 0.9em;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    font-family: var(--font-mono-face);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .hairline-t {
+    border-top: 1px solid var(--hairline);
+  }
+
+  .hairline-b {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    z-index: 70;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-ink-950);
+    color: var(--color-paper-50);
+    font-family: var(--font-mono-face);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: top var(--dur-fast) ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
