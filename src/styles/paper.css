@@ -131,11 +131,110 @@
   }
 }
 
+.text-outline {
+  -webkit-text-stroke: 2px var(--ink-950);
+  color: transparent;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.hero-orb-a {
+  width: 36rem;
+  height: 36rem;
+  top: -14rem;
+  right: -10rem;
+  background: radial-gradient(circle, rgb(207 91 78 / 0.18), transparent 62%);
+  animation: orb-a 26s ease-in-out infinite alternate;
+}
+
+.hero-orb-b {
+  width: 30rem;
+  height: 30rem;
+  bottom: -12rem;
+  left: -8rem;
+  background: radial-gradient(circle, rgb(255 206 60 / 0.14), transparent 62%);
+  animation: orb-b 34s ease-in-out infinite alternate;
+}
+
+.hero-orb-c {
+  width: 22rem;
+  height: 22rem;
+  top: 24%;
+  left: 40%;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.16), transparent 60%);
+  animation: orb-c 40s ease-in-out infinite alternate;
+}
+
+@keyframes orb-a {
+  to {
+    transform: translate3d(-5rem, 3.5rem, 0) scale(1.12);
+  }
+}
+
+@keyframes orb-b {
+  to {
+    transform: translate3d(4rem, -3rem, 0) scale(1.18);
+  }
+}
+
+@keyframes orb-c {
+  to {
+    transform: translate3d(-3rem, 4rem, 0) scale(0.9);
+  }
+}
+
+.hero-dust {
+  position: absolute;
+  bottom: -1rem;
+  border-radius: 9999px;
+  background: var(--ink-950);
+  animation: dust-rise linear infinite;
+  will-change: transform;
+}
+
+@keyframes dust-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: var(--dust-opacity, 0.3);
+  }
+
+  92% {
+    opacity: var(--dust-opacity, 0.3);
+  }
+
+  100% {
+    transform: translate3d(var(--dust-drift, 10px), -105vh, 0);
+    opacity: 0;
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .paper-frag,
   .type-cursor,
   .scan-line,
-  .hero-scatter .split-letter {
+  .hero-scatter .split-letter,
+  .hero-orb,
+  .hero-dust,
+  .marquee-track {
     animation: none;
     transition: none;
   }

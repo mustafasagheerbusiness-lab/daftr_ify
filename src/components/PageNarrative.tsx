@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { SheetSlide } from "@/components/primitives/SheetSlide";
+import { Marquee } from "@/components/primitives/Marquee";
 import { HeroScene } from "@/components/scenes/HeroScene";
 import { MessScene } from "@/components/scenes/MessScene";
 
@@ -38,6 +39,10 @@ export function PageNarrative() {
       <div ref={messRef}>
         <MessScene />
       </div>
+      <Marquee
+        items={["DOCUMENTS", "OPERATIONS", "FILING", "REVIEW", "DELIVERY"]}
+        className="border-y border-ink-950/10 bg-paper-100 py-4"
+      />
       <MethodScene />
       <DemoScene />
       <HumanReviewScene />

@@ -47,7 +47,7 @@
   --mark-900: #4e1713;
   --mark-950: #330f0c;
 
-  --font-display-face: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-display-face: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-mono-face: var(--font-plex), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --font-accent-face: var(--font-instrument), Georgia, "Times New Roman", serif;
 

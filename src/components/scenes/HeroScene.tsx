@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import {
   motion,
   useMotionValueEvent,
@@ -15,6 +16,15 @@ import { SplitText } from "@/components/primitives/SplitText";
 import { Stamp } from "@/components/primitives/Stamp";
 import { TypeLine } from "@/components/primitives/TypeLine";
 import { useIsMobile } from "@/hooks/useIsMobile";
+
+const DUST = Array.from({ length: 16 }, (_, i) => ({
+  left: `${((i * 61) % 97) + 1}%`,
+  size: `${2 + ((i * 37) % 3)}px`,
+  delay: -((i * 1.9) % 24),
+  duration: 18 + ((i * 53) % 14),
+  drift: `${(i % 2 === 0 ? 1 : -1) * (8 + ((i * 11) % 12))}px`,
+  opacity: 0.18 + ((i * 13) % 12) / 40,
+}));
 
 export function HeroScene() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -47,6 +57,28 @@ export function HeroScene() {
         scatteredActive && "hero-scatter",
       )}
     >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="hero-orb hero-orb-a" />
+        <div className="hero-orb hero-orb-b" />
+        <div className="hero-orb hero-orb-c" />
+        {DUST.map((d, i) => (
+          <span
+            key={i}
+            className="hero-dust"
+            style={
+              {
+                left: d.left,
+                width: d.size,
+                height: d.size,
+                animationDelay: `${d.delay}s`,
+                animationDuration: `${d.duration}s`,
+                "--dust-drift": d.drift,
+                "--dust-opacity": d.opacity,
+              } as CSSProperties
+            }
+          />
+        ))}
+      </div>
       <motion.div
         className="container-doc"
         style={animateBlock ? { y: blockY, opacity: blockOpacity } : undefined}
@@ -79,12 +111,12 @@ export function HeroScene() {
 
           <h1
             aria-label="Messy work. Clear workflows."
-            className="font-display text-[clamp(2.75rem,9vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.03em]"
+            className="font-display text-[clamp(3.25rem,10.5vw,8rem)] font-bold leading-[0.92] tracking-[-0.045em]"
           >
             <span aria-hidden="true" className="block">
               <SplitText text="Messy work." mode="messy" delay={0.4} />
             </span>
-            <span aria-hidden="true" className="block">
+            <span aria-hidden="true" className="text-outline block">
               <SplitText text="Clear workflows." mode="clean" delay={1.5} />
             </span>
           </h1>

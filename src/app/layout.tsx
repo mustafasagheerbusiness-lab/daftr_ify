@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Instrument_Serif, Schibsted_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { SITE } from "@/content/site";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
+import { CustomCursor } from "@/components/layout/CustomCursor";
 import "./globals.css";
 import "@/styles/tokens.css";
 import "@/styles/paper.css";
 import "@/styles/ink.css";
 
-const schibsted = Schibsted_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-schibsted",
+  variable: "--font-bricolage",
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -80,7 +81,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${schibsted.variable} ${plexMono.variable} ${instrument.variable}`}
+      className={`${bricolage.variable} ${plexMono.variable} ${instrument.variable}`}
     >
       <body className="bg-paper-50 font-display text-ink-950 antialiased">
         <MotionConfig reducedMotion="user">
@@ -94,6 +95,7 @@ export default function RootLayout({
             <SiteFooter />
           </div>
         </MotionConfig>
+        <CustomCursor />
       </body>
     </html>
   );
