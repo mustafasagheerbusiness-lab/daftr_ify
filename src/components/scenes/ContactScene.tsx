@@ -8,7 +8,6 @@ export function ContactScene() {
   return (
     <Scene
       id="contact"
-      label="SEC-09 · CONTACT & INTAKE"
       tone="ink"
       aria-labelledby="contact-heading"
       className="texture-ink"
@@ -52,7 +51,7 @@ export function ContactScene() {
               </a>
             </div>
 
-            <div className="border border-stamp-500/40 p-6">
+            <div className="glass border-stamp-400/30 p-6">
               <MonoLabel className="text-stamp-300">WhatsApp — fastest reply</MonoLabel>
               <a
                 href={whatsappHref()}

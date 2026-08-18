@@ -77,6 +77,19 @@
     scroll-behavior: smooth;
   }
 
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
   html,
   body {
     overflow-x: clip;
@@ -85,15 +98,15 @@
   body {
     background-color: var(--color-paper-50);
     color: var(--color-ink-950);
-    font-family: var(--font-display);
+    font-family: var(--font-body-face);
     letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: var(--color-stamp-200);
-    color: var(--color-ink-950);
+    background-color: var(--color-stamp-500);
+    color: var(--color-paper-50);
   }
 
   :focus-visible {
@@ -240,6 +253,29 @@
 
   .skip-link:focus {
     top: 1rem;
+  }
+
+  .glass {
+    background-color: rgb(255 255 255 / 0.018);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgb(255 255 255 / 0.07);
+    border-top-color: rgb(255 255 255 / 0.13);
+  }
+
+  .shine {
+    background-image: linear-gradient(0deg, rgb(150 155 168) 20%, rgb(255 255 255) 42%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-blue {
+    background: radial-gradient(
+      129% 219% at 50% 88.7%,
+      rgb(38 118 209 / 0.5) 0%,
+      rgb(32 69 138 / 0) 2.7%
+    );
   }
 }
 

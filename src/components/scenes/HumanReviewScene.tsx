@@ -12,7 +12,6 @@ export function HumanReviewScene() {
   return (
     <Scene
       id="human-review"
-      label="SEC-05 · HUMAN REVIEW"
       tone="warm"
       aria-labelledby="human-review-heading"
       className="grain"
@@ -35,8 +34,8 @@ export function HumanReviewScene() {
       </Reveal>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
-        <Reveal className="border border-ink-950/10 bg-paper-50 p-6 shadow-sheet sm:p-8">
-          <MonoLabel className="block">Machine lane — processed in minutes</MonoLabel>
+        <Reveal className="glass p-6 shadow-[0_16px_48px_rgb(0_0_0/0.4)] sm:p-8">
+          <MonoLabel className="block text-ink-950/60">Machine lane — processed in minutes</MonoLabel>
           <ul className="mt-6 flex flex-col gap-3">
             {MACHINE_STEPS.map((step) => (
               <CheckItem key={step}>{step}</CheckItem>
@@ -47,8 +46,8 @@ export function HumanReviewScene() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.12} className="border border-ink-950/10 bg-paper-50 p-6 shadow-sheet sm:p-8">
-          <MonoLabel className="block">Human lane — reviewed by Ghulam Mustafa</MonoLabel>
+        <Reveal delay={0.12} className="glass p-6 shadow-[0_16px_48px_rgb(0_0_0/0.4)] sm:p-8">
+          <MonoLabel className="block text-ink-950/60">Human lane — reviewed by Ghulam Mustafa</MonoLabel>
           <ul className="mt-6 flex flex-col gap-3">
             {HUMAN_STEPS.map((step) => (
               <CheckItem key={step}>{step}</CheckItem>

@@ -39,10 +39,10 @@ export function DemoScene() {
       ref={sectionRef}
       id="workflows"
       aria-labelledby="workflows-heading"
-      className="texture-ink relative scroll-mt-20 overflow-x-clip bg-ink-950 text-paper-100"
+      className="texture-ink relative scroll-mt-20 overflow-x-clip bg-paper-50 text-ink-950"
     >
       <div className="container-doc relative pt-[var(--spacing-section)]">
-        <MonoLabel className="block">SEC-04 · WORKFLOW EXPERIENCES</MonoLabel>
+        <MonoLabel className="block">WORKFLOW EXPERIENCES</MonoLabel>
 
         <h2
           id="workflows-heading"
@@ -66,7 +66,7 @@ export function DemoScene() {
         <div className="container-doc flex h-svh flex-col justify-between overflow-hidden pb-4 pt-16 sm:pb-6 sm:pt-24">
           <div className="grid min-h-0 flex-1 items-center gap-10 lg:grid-cols-[16rem_1fr] lg:gap-14">
             <div aria-hidden="true" className="relative hidden lg:block">
-              <div className="absolute bottom-2 left-[7px] top-2 w-px bg-paper-100/15" />
+              <div className="absolute bottom-2 left-[7px] top-2 w-px bg-ink-950/15" />
               <motion.div
                 className="absolute left-[7px] top-2 w-px origin-top bg-stamp-500"
                 style={{ scaleY: (stage + 1) / 6 }}
@@ -84,14 +84,14 @@ export function DemoScene() {
                             ? "border-stamp-500 bg-stamp-500"
                             : done
                               ? "border-stamp-500/50 bg-stamp-500/30"
-                              : "border-paper-100/25",
+                              : "border-ink-950/25",
                         )}
                       />
                       <span>
                         <span
                           className={cn(
                             "block font-mono text-[0.625rem] uppercase tracking-[0.2em]",
-                            active ? "text-stamp-300" : "text-paper-100/40",
+                            active ? "text-stamp-300" : "text-ink-950/40",
                           )}
                         >
                           {item.index}
@@ -100,15 +100,15 @@ export function DemoScene() {
                           className={cn(
                             "mt-0.5 block font-display text-base font-semibold tracking-tight transition-colors duration-300",
                             active
-                              ? "text-paper-50"
+                              ? "text-ink-950"
                               : done
-                                ? "text-paper-100/70"
-                                : "text-paper-100/30",
+                                ? "text-ink-950/70"
+                                : "text-ink-950/30",
                           )}
                         >
                           {item.label}
                         </span>
-                        <span className="mt-0.5 block font-mono text-[0.5625rem] uppercase tracking-[0.14em] text-paper-100/35">
+                        <span className="mt-0.5 block font-mono text-[0.5625rem] uppercase tracking-[0.14em] text-ink-950/35">
                           {item.detail}
                         </span>
                       </span>
@@ -149,7 +149,7 @@ export function DemoScene() {
                     "chip transition-colors duration-200",
                     item.id === file.id
                       ? "border-stamp-500 text-stamp-300"
-                      : "border-paper-100/20 text-paper-100/50 hover:border-paper-100/45 hover:text-paper-100",
+                      : "border-ink-950/20 text-ink-950/50 hover:border-ink-950/45 hover:text-ink-950",
                   )}
                 >
                   {item.code} · {item.title}
@@ -170,7 +170,7 @@ export function DemoScene() {
                       ? "w-6 bg-stamp-500"
                       : i < stage
                         ? "w-3 bg-stamp-500/50"
-                        : "w-3 bg-paper-100/20",
+                        : "w-3 bg-ink-950/20",
                   )}
                 />
               ))}
@@ -178,15 +178,15 @@ export function DemoScene() {
 
             <div className="mt-6 hidden grid-cols-3 gap-6 sm:grid">
               <div>
-                <MonoLabel className="text-paper-100/50">Before</MonoLabel>
+                <MonoLabel className="text-ink-950/50">Before</MonoLabel>
                 <p className="mt-1 text-xs leading-relaxed opacity-60">{file.before}</p>
               </div>
               <div>
-                <MonoLabel className="text-paper-100/50">After</MonoLabel>
+                <MonoLabel className="text-ink-950/50">After</MonoLabel>
                 <p className="mt-1 text-xs leading-relaxed opacity-60">{file.after}</p>
               </div>
               <div>
-                <MonoLabel className="text-paper-100/50">Turn-around</MonoLabel>
+                <MonoLabel className="text-ink-950/50">Turn-around</MonoLabel>
                 <p className="mt-1 font-mono text-xs text-stamp-300">
                   {file.turnaround}
                 </p>

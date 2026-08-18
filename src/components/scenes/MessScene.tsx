@@ -134,7 +134,7 @@ export function MessScene() {
       </PaperFragment>
 
       <div className="container-doc relative py-section">
-        <MonoLabel className="mb-12 block">SEC-02 · THE MESS</MonoLabel>
+        <MonoLabel className="mb-12 block">THE MESS</MonoLabel>
 
         <h2
           id="mess-heading"

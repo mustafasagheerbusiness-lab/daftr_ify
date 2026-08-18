@@ -1,5 +1,5 @@
 export const FOUNDER = {
-  file: "FILE 07 · FOUNDER",
+  file: "PERSONNEL FILE · FOUNDER",
   name: "Ghulam Mustafa",
   role: "Founder — Document & Workflow Operations",
   location: "Pakistan · Working globally",

@@ -8,10 +8,10 @@ import { EASE, DURATION, VIEWPORT } from "@/lib/animations";
 export type StampTone = "approve" | "reject" | "seal" | "ink";
 
 const TONES: Record<StampTone, string> = {
-  approve: "border-stamp-600 text-stamp-600 mix-blend-multiply",
-  reject: "border-mark-600 text-mark-600 mix-blend-multiply",
-  seal: "border-paper-100 text-paper-100",
-  ink: "border-ink-900 text-ink-900 mix-blend-multiply",
+  approve: "border-stamp-300 text-stamp-300",
+  reject: "border-mark-300 text-mark-300",
+  seal: "border-ink-300 text-ink-300",
+  ink: "border-ink-300 text-ink-300",
 };
 
 interface StampProps {

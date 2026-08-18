@@ -6,7 +6,7 @@ export type SceneTone = "paper" | "ink" | "warm";
 
 const TONES: Record<SceneTone, string> = {
   paper: "bg-paper-50 text-ink-950",
-  ink: "bg-ink-950 text-paper-100",
+  ink: "bg-paper-50 text-ink-950",
   warm: "bg-paper-100 text-ink-950",
 };
 

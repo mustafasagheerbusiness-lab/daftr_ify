@@ -10,7 +10,7 @@ export function FounderScene() {
   return (
     <Scene
       id="founder"
-      label="SEC-07 · FOUNDER"
+      label="THE FOUNDER"
       tone="warm"
       aria-labelledby="founder-heading"
       className="grain"
@@ -49,7 +49,7 @@ export function FounderScene() {
 
         <Reveal
           delay={0.15}
-          className="border border-ink-950/15 bg-paper-50 shadow-sheet"
+          className="glass border-ink-950/15 shadow-[0_16px_48px_rgb(0_0_0/0.4)]"
         >
           <div className="flex items-center justify-between gap-4 border-b border-ink-950/10 px-6 py-4 sm:px-8">
             <MonoLabel>{FOUNDER.file}</MonoLabel>

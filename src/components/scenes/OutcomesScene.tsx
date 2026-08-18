@@ -9,7 +9,6 @@ export function OutcomesScene() {
   return (
     <Scene
       id="outcomes"
-      label="SEC-06 · OUTCOMES"
       tone="ink"
       aria-labelledby="outcomes-heading"
       className="texture-ink"
@@ -27,7 +26,7 @@ export function OutcomesScene() {
       </h2>
 
       <Reveal delay={0.15} className="mt-14">
-        <div className="bg-paper-100 text-ink-950 shadow-lift">
+        <div className="glass text-ink-950 shadow-[0_16px_48px_rgb(0_0_0/0.4)]">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-ink-950/10 px-6 py-4 sm:px-10">
             <MonoLabel>Outcomes report — first pilot</MonoLabel>
             <Stamp tone="approve" className="scale-90">
@@ -61,7 +60,7 @@ export function OutcomesScene() {
         </div>
       </Reveal>
 
-      <div className="mt-14 border-t border-paper-100/15 pt-8">
+      <div className="mt-14 border-t border-white/10 pt-8">
         <Reveal as="p" className="max-w-2xl text-sm leading-relaxed opacity-70">
           {SCOPE_LINE}
         </Reveal>

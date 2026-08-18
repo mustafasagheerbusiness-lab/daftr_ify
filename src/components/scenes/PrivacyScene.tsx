@@ -17,7 +17,7 @@ export function PrivacyScene() {
   return (
     <Scene
       id="privacy"
-      label="SEC-08 · PRIVACY & TRUST"
+      label="PRIVACY & TRUST"
       tone="ink"
       aria-labelledby="privacy-heading"
       className="texture-ink"

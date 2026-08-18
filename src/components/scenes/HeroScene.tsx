@@ -13,7 +13,6 @@ import { cn } from "@/lib/cn";
 import { MonoLabel } from "@/components/primitives/MonoLabel";
 import { Reveal } from "@/components/primitives/Reveal";
 import { SplitText } from "@/components/primitives/SplitText";
-import { Stamp } from "@/components/primitives/Stamp";
 import { TypeLine } from "@/components/primitives/TypeLine";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
@@ -37,7 +36,7 @@ export function HeroScene() {
     offset: ["start start", "end start"],
   });
 
-  const blockY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const blockY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const blockOpacity = useTransform(scrollYProgress, [0.55, 0.9], [1, 0]);
   const metaY = useTransform(scrollYProgress, [0, 1], [0, -48]);
 
@@ -79,55 +78,35 @@ export function HeroScene() {
           />
         ))}
       </div>
+
       <motion.div
-        className="container-doc"
+        className="container-doc text-center"
         style={animateBlock ? { y: blockY, opacity: blockOpacity } : undefined}
       >
         <TypeLine
           text="DAFTRIFY — Document & Workflow Operations"
           delay={0.15}
-          className="font-mono text-[0.6875rem] uppercase tracking-[0.25em] opacity-60"
+          className="justify-center font-mono text-[0.6875rem] uppercase tracking-[0.25em] opacity-60"
         />
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Stamp tone="approve" delay={1.25} className="text-[0.55rem]">
-            PASS 01 · AI-ASSISTED
-          </Stamp>
-          <Stamp tone="ink" delay={1.5} className="text-[0.55rem]">
-            PASS 02 · HUMAN REVIEW
-          </Stamp>
-        </div>
+        <h1
+          aria-label="Messy work. Clear workflows."
+          className="mx-auto mt-10 max-w-5xl font-display text-[clamp(3.5rem,8vw,7rem)] font-bold leading-[0.95] tracking-[-0.03em]"
+        >
+          <span aria-hidden="true" className="block">
+            <SplitText text="Messy work." mode="messy" delay={0.4} />
+          </span>
+          <span aria-hidden="true" className="shine block">
+            <SplitText text="Clear workflows." mode="clean" delay={1.5} />
+          </span>
+        </h1>
 
-        <div className="relative mt-10">
-          <Stamp
-            slam
-            ring
-            tone="approve"
-            delay={1.85}
-            className="absolute -top-12 right-0 hidden text-[0.55rem] lg:block"
-          >
-            Reviewed
-          </Stamp>
-
-          <h1
-            aria-label="Messy work. Clear workflows."
-            className="font-display text-[clamp(3.25rem,10.5vw,8rem)] font-bold leading-[0.92] tracking-[-0.045em]"
-          >
-            <span aria-hidden="true" className="block">
-              <SplitText text="Messy work." mode="messy" delay={0.4} />
-            </span>
-            <span aria-hidden="true" className="text-outline block">
-              <SplitText text="Clear workflows." mode="clean" delay={1.5} />
-            </span>
-          </h1>
-        </div>
-
-        <Reveal as="p" delay={2.1} className="mt-10 max-w-xl text-lg leading-relaxed opacity-70">
+        <Reveal as="p" delay={2.1} className="mx-auto mt-10 max-w-xl text-lg leading-relaxed opacity-70">
           Repetitive, document-heavy work — reorganized into faster, consistent,
           human-reviewed workflows. AI-assisted. Human-reviewed.
         </Reveal>
 
-        <Reveal delay={2.3} className="mt-10 flex flex-wrap gap-4">
+        <Reveal delay={2.3} className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <a href="#contact" className="btn btn-primary">
             Start a workflow
           </a>
@@ -136,16 +115,13 @@ export function HeroScene() {
           </a>
         </Reveal>
 
-        <motion.div
-          style={animateBlock ? { y: metaY } : undefined}
-          className="mt-24"
-        >
+        <motion.div style={animateBlock ? { y: metaY } : undefined} className="mt-24">
           <Reveal
             delay={2.5}
-            className="flex flex-wrap items-center justify-between gap-4 border-t border-ink-950/10 pt-6"
+            className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 border-t border-ink-950/10 pt-6"
           >
-            <MonoLabel>FILE 001 · STATUS: IN PROGRESS</MonoLabel>
-            <MonoLabel className="hidden sm:block">PAKISTAN · WORKING GLOBALLY</MonoLabel>
+            <MonoLabel>PAKISTAN · WORKING GLOBALLY</MonoLabel>
+            <MonoLabel className="hidden sm:block">RESPONSE WITHIN 24 HOURS</MonoLabel>
             <MonoLabel>SCROLL — THE FILE COMPILES ↓</MonoLabel>
           </Reveal>
         </motion.div>

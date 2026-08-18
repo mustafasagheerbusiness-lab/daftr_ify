@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+import { Fragment_Mono, Instrument_Serif, Onest } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { SITE } from "@/content/site";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { CustomCursor } from "@/components/layout/CustomCursor";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "./globals.css";
 import "@/styles/tokens.css";
 import "@/styles/paper.css";
 import "@/styles/ink.css";
 
-const bricolage = Bricolage_Grotesque({
+const onest = Onest({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  variable: "--font-onest",
 });
 
-const plexMono = IBM_Plex_Mono({
+const fragment = Fragment_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex",
+  weight: "400",
+  variable: "--font-fragment",
 });
 
 const instrument = Instrument_Serif({
@@ -81,8 +82,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${plexMono.variable} ${instrument.variable}`}
+      className={`${onest.variable} ${fragment.variable} ${instrument.variable}`}
     >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap"
+        />
+      </head>
       <body className="bg-paper-50 font-display text-ink-950 antialiased">
         <MotionConfig reducedMotion="user">
           <div id="top">
@@ -95,6 +102,7 @@ export default function RootLayout({
             <SiteFooter />
           </div>
         </MotionConfig>
+        <SmoothScroll />
         <CustomCursor />
       </body>
     </html>

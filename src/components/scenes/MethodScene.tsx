@@ -5,7 +5,7 @@ import { Scene } from "@/components/primitives/Scene";
 
 export function MethodScene() {
   return (
-    <Scene id="method" label="SEC-03 · THE METHOD" aria-labelledby="method-heading" className="grain">
+    <Scene id="method" aria-labelledby="method-heading" className="grain">
       <h2
         id="method-heading"
         className="max-w-3xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
